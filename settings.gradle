@@ -1,7 +1,12 @@
 rootProject.name = 'confile4j'
 
-
+include 'confile'
+include 'confile-api'
+include 'confile-core'
+include 'confile-immutable'
+include 'confile-mutable'
 
 rootProject.children.each {project ->
     project.buildFileName = "${project.name}.gradle"
 }
+

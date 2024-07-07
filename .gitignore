@@ -68,3 +68,5 @@ gradle-local.properties
 
 ### other locals ###
 local_*
+
+confile/**
