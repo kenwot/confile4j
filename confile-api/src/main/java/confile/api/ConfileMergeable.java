@@ -54,6 +54,9 @@ public interface ConfileMergeable {
      * Returns the value computed by merging this value with another,
      * with this value taking precedence.
      *
+     * <p>
+     * The returned value is a new instance or the modified current instance depending on the specific implementation.
+     *
      * @param other another object.
      * @return the merged object.
      */
@@ -63,11 +66,13 @@ public interface ConfileMergeable {
      * Returns the value computed by merging this value with another,
      * with the specified mode determining how conflicts are resolved.
      *
+     * <p>
+     * The returned value is a new instance or the modified current instance depending on the specific implementation.
+     *
      * @param other another object.
      * @param mode the merge mode.
      * @return the merged object.
      */
-    // 合并 this 和 other，相同键根据 mode 决定保留 this 的还是 other 的
     ConfileMergeable merge(ConfileMergeable other, ConfileMergeMode mode);
 
 }

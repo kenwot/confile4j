@@ -22,5 +22,14 @@ package confile.api;
  * @author Kenown
  * @since 1.0.0
  */
-public class ConfileRenderOptions {
+public final class ConfileRenderOptions {
+
+    public static ConfileRenderOptions defaults() {
+        return null;
+    }
+
+    public ConfileRenderOptions() {
+
+    }
+
 }

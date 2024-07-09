@@ -17,7 +17,7 @@
 package confile.api;
 
 /**
- * TODO-Kenown ConfileValueType
+ * The type of configuration value (following the <a href="https://json.org">JSON</a> type schema).
  *
  * @author Kenown
  * @since 1.0.0

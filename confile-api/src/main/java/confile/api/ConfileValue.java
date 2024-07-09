@@ -17,21 +17,54 @@
 package confile.api;
 
 /**
- * TODO-Kenown Convalue
+ * A value following the <a href="https://json.org">JSON</a> type schema.
  *
  * @author Kenown
  * @since 1.0.0
  */
 public interface ConfileValue extends ConfileMergeable {
 
+    /**
+     * The origin of the value (file, line number, etc.),
+     * for debugging and error messages.
+     *
+     * @return where the value came from.
+     */
     ConfileOrigin origin();
 
+    /**
+     * The {@link ConfileValueType} of the value; matches the JSON type schema.
+     *
+     * @return value's type.
+     */
     ConfileValueType type();
 
+    /**
+     * Returns the value as a plain Java boxed value,
+     * that is, {@code String}, {@code Number}, {@code Boolean},
+     * {@code Map<String,Object>}, {@code List<Object>}, or {@code null},
+     * matching the {@link #type()} of this {@link ConfileValue}.
+     *
+     * <p>
+     * If the value is a {@link ConfileObject} or {@link ConfileList}, it is recursively unwrapped.
+     *
+     * @return a plain Java value corresponding to this ConfileValue.
+     */
     Object unwrapped();
 
+    /**
+     * Renders the confile value to a string, using the {@link ConfileRenderOptions#defaults()} options.
+     *
+     * @return the rendered value
+     */
     String render();
 
+    /**
+     * Renders the confile value to a string, using the provided options.
+     *
+     * @param options the rendering options
+     * @return the rendered value
+     */
     String render(ConfileRenderOptions options);
 
     @Override
@@ -61,5 +94,18 @@ public interface ConfileValue extends ConfileMergeable {
      * @see #atPath(String)
      */
     Confile atKey(String key);
+
+    /**
+     * Returns a {@code ConfileValue} based on this one, but with the given
+     * origin. This is useful when you are parsing a new format of file or setting
+     * comments for a single ConfigValue.
+     *
+     * <p>
+     * The returned value is a new instance or the modified current instance depending on the specific implementation.
+     *
+     * @param origin the origin set on the returned value
+     * @return ConfileValue with the given origin
+     */
+    ConfileValue withOrigin(ConfileOrigin origin);
 
 }

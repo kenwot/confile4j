@@ -17,27 +17,19 @@
 package confile.api;
 
 /**
- * TODO-Kenown Confile
+ * TODO-Kenown ConfileResolveOptions
  *
  * @author Kenown
  * @since 1.0.0
  */
-public interface Confile extends ConfileMergeable {
+public final class ConfileResolveOptions {
 
-    ConfileObject root();
+    public static ConfileResolveOptions defaults() {
+        return null;
+    }
 
-    ConfileOrigin origin();
+    public ConfileResolveOptions() {
 
-    @Override
-    ConfileValue merge(ConfileMergeable other);
-
-    @Override
-    ConfileValue merge(ConfileMergeable other, ConfileMergeMode mode);
-
-    Confile resolve();
-
-    Confile resolve(ConfileResolveOptions options);
-
-    boolean isResolved();
+    }
 
 }

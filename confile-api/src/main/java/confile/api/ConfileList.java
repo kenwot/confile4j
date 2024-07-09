@@ -16,28 +16,13 @@
 
 package confile.api;
 
+import java.util.List;
+
 /**
- * TODO-Kenown Confile
+ * TODO-Kenown ConfileList
  *
  * @author Kenown
  * @since 1.0.0
  */
-public interface Confile extends ConfileMergeable {
-
-    ConfileObject root();
-
-    ConfileOrigin origin();
-
-    @Override
-    ConfileValue merge(ConfileMergeable other);
-
-    @Override
-    ConfileValue merge(ConfileMergeable other, ConfileMergeMode mode);
-
-    Confile resolve();
-
-    Confile resolve(ConfileResolveOptions options);
-
-    boolean isResolved();
-
+public interface ConfileList extends ConfileValue, List<ConfileValue> {
 }
